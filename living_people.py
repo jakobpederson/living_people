@@ -3,7 +3,6 @@ import csv
 from collections import namedtuple, defaultdict
 import datetime
 
-TODAY = datetime.datetime.today().date()
 FORMAT = '%m-%d-%Y'
 Person = namedtuple('Person', ['last_name', 'first_name', 'birth', 'death'])
 
@@ -23,6 +22,18 @@ class LivingPeople():
                 datetime.datetime.strptime(person[3], FORMAT),
                 ) for person in people if person
             ]
+
+    def valid_date_check(self, persons):
+        for person in persons:
+            if person.birth.year > person.death.year:
+                return 'Invalid birth date: {} {} {}'.format(
+                    person.first_name, person.last_name, person.birth.date().strftime(FORMAT))
+            if person.birth.year < 1900 or person.birth.year > 2000:
+                return 'Birthdate is out of range: {} {} {}'.format(
+                    person.first_name, person.last_name, person.birth.date().strftime(FORMAT))
+            if person.death.year < 1900 or person.death.year > 2000:
+                return 'Death date is out of range: {} {} {}'.format(
+                    person.first_name, person.last_name, person.death.date().strftime(FORMAT))
 
     def read_file(self, file_name):
         if file_name:
@@ -51,7 +62,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
     g = LivingPeople()
     list_of_people = g.get_people(args.file_name)
-    g.get_lives_per_year(list_of_people)
-    print('Year(s) with the most people alive:', g.get_all_max_years())
-    if args.chart:
-        chart_data(g.years_alive)
+    date_check = g.valid_date_check(list_of_people)
+    if date_check:
+        print("Error")
+        print(date_check)
+    else:
+        g.get_lives_per_year(list_of_people)
+        print('Year(s) with the most people alive:', g.get_all_max_years())
+        if args.chart:
+            chart_data(g.years_alive)

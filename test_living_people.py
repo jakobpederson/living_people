@@ -6,31 +6,80 @@ import living_people
 
 Person = living_people.Person
 FORMAT = '%m-%d-%Y'
-TODAY = datetime.datetime.today().date()
 
 TEST_PEOPLE = [
-    Person(last_name='paxton', first_name='bill', birth=datetime.datetime(1981, 1, 1, 0, 0), death=datetime.datetime(1982, 2, 2, 0, 0)),
-    Person(last_name='goldburg', first_name='jeff', birth=datetime.datetime(1981, 1, 2, 0, 0), death=datetime.datetime(2000, 1, 4, 0, 0)),
-    Person(last_name='cruise', first_name='tom', birth=datetime.datetime(1983, 1, 3, 0, 0), death=datetime.datetime(1999, 1, 4, 0, 0)),
-    Person(last_name='bale', first_name='christian', birth=datetime.datetime(1991, 1, 5, 0, 0), death=datetime.datetime(1991, 1, 6, 0, 0)),
+    Person(
+        last_name='paxton', first_name='bill',
+        birth=datetime.datetime(1981, 1, 1, 0, 0), death=datetime.datetime(1982, 2, 2, 0, 0)),
+    Person(
+        last_name='goldburg', first_name='jeff',
+        birth=datetime.datetime(1981, 1, 2, 0, 0), death=datetime.datetime(2000, 1, 4, 0, 0)),
+    Person(
+        last_name='cruise', first_name='tom',
+        birth=datetime.datetime(1983, 1, 3, 0, 0), death=datetime.datetime(1999, 1, 4, 0, 0)),
+    Person(
+        last_name='bale', first_name='christian',
+        birth=datetime.datetime(1991, 1, 5, 0, 0), death=datetime.datetime(1991, 1, 6, 0, 0)),
     ]
 
 TEST_PEOPLE_2 = [
-    Person(last_name='paxton', first_name='bill', birth=datetime.datetime(1981, 1, 1, 0, 0), death=datetime.datetime(1982, 2, 2, 0, 0)),
-    Person(last_name='goldburg', first_name='jeff', birth=datetime.datetime(1981, 1, 2, 0, 0), death=datetime.datetime(2000, 1, 4, 0, 0)),
-    Person(last_name='cruise', first_name='tom', birth=datetime.datetime(1983, 1, 3, 0, 0), death=datetime.datetime(1999, 1, 4, 0, 0)),
-    Person(last_name='bale', first_name='christian', birth=datetime.datetime(1991, 1, 5, 0, 0), death=datetime.datetime(1991, 1, 6, 0, 0)),
-    Person(last_name='paxton', first_name='bill2', birth=datetime.datetime(1981, 1, 1, 0, 0), death=datetime.datetime(1987, 1, 1, 0, 0)),
-    Person(last_name='goldburg', first_name='jeff2', birth=datetime.datetime(1971, 1, 1, 0, 0), death=datetime.datetime(1987, 1, 1, 0, 0)),
-    Person(last_name='cruise', first_name='tom2', birth=datetime.datetime(1961, 1, 1, 0, 0), death=datetime.datetime(1987, 1, 1, 0, 0)),
-    Person(last_name='bale', first_name='christian2', birth=datetime.datetime(1951, 1, 1, 0, 0), death=datetime.datetime(1987, 1, 1, 0, 0))
+    Person(
+        last_name='paxton', first_name='bill',
+        birth=datetime.datetime(1981, 1, 1, 0, 0), death=datetime.datetime(1982, 2, 2, 0, 0)),
+    Person(
+        last_name='goldburg', first_name='jeff',
+        birth=datetime.datetime(1981, 1, 2, 0, 0), death=datetime.datetime(2000, 1, 4, 0, 0)),
+    Person(
+        last_name='cruise', first_name='tom',
+        birth=datetime.datetime(1983, 1, 3, 0, 0), death=datetime.datetime(1999, 1, 4, 0, 0)),
+    Person(
+        last_name='bale', first_name='christian',
+        birth=datetime.datetime(1991, 1, 5, 0, 0), death=datetime.datetime(1991, 1, 6, 0, 0)),
+    Person(
+        last_name='paxton', first_name='bill2',
+        birth=datetime.datetime(1981, 1, 1, 0, 0), death=datetime.datetime(1987, 1, 1, 0, 0)),
+    Person(
+        last_name='goldburg', first_name='jeff2',
+        birth=datetime.datetime(1971, 1, 1, 0, 0), death=datetime.datetime(1987, 1, 1, 0, 0)),
+    Person(
+        last_name='cruise', first_name='tom2',
+        birth=datetime.datetime(1961, 1, 1, 0, 0), death=datetime.datetime(1987, 1, 1, 0, 0)),
+    Person(
+        last_name='bale', first_name='christian2',
+        birth=datetime.datetime(1951, 1, 1, 0, 0), death=datetime.datetime(1987, 1, 1, 0, 0))
     ]
 
 TEST_PEOPLE_3 = [
-    Person(last_name='paxton', first_name='bill', birth=datetime.datetime(1981, 1, 1, 0, 0), death=datetime.datetime(1982, 2, 2, 0, 0)),
-    Person(last_name='goldburg', first_name='jeff', birth=datetime.datetime(1981, 1, 2, 0, 0), death=datetime.datetime(2018, 1, 4, 0, 0)),
-    Person(last_name='cruise', first_name='tom', birth=datetime.datetime(1981, 1, 3, 0, 0), death=datetime.datetime(2010, 1, 4, 0, 0)),
-    Person(last_name='bale', first_name='christian', birth=datetime.datetime(1981, 1, 5, 0, 0), death=datetime.datetime(1991, 1, 6, 0, 0))
+    Person(
+        last_name='paxton', first_name='bill',
+        birth=datetime.datetime(1981, 1, 1, 0, 0), death=datetime.datetime(1982, 2, 2, 0, 0)),
+    Person(
+        last_name='goldburg', first_name='jeff',
+        birth=datetime.datetime(1981, 1, 2, 0, 0), death=datetime.datetime(2018, 1, 4, 0, 0)),
+    Person(
+        last_name='cruise', first_name='tom',
+        birth=datetime.datetime(1981, 1, 3, 0, 0), death=datetime.datetime(2010, 1, 4, 0, 0)),
+    Person(
+        last_name='bale', first_name='christian',
+        birth=datetime.datetime(1981, 1, 5, 0, 0), death=datetime.datetime(1991, 1, 6, 0, 0))
+    ]
+
+TEST_PEOPLE_4 = [
+    Person(
+        last_name='paxton', first_name='bill',
+        birth=datetime.datetime(1981, 1, 1, 0, 0), death=datetime.datetime(2010, 2, 2, 0, 0)),
+    ]
+
+TEST_PEOPLE_5 = [
+    Person(
+        last_name='goldburg', first_name='jeff',
+        birth=datetime.datetime(1890, 1, 2, 0, 0), death=datetime.datetime(2018, 1, 4, 0, 0)),
+    ]
+
+TEST_PEOPLE_6 = [
+    Person(
+        last_name='cruise', first_name='tom',
+        birth=datetime.datetime(1981, 1, 3, 0, 0), death=datetime.datetime(1971, 1, 4, 0, 0)),
     ]
 
 
@@ -52,3 +101,11 @@ class TestLivingPeople(unittest.TestCase):
         self.people.get_lives_per_year(people_list)
         result = self.people.get_all_max_years()
         self.assertCountEqual([1981, 1982], result)
+
+    def test_valid_date(self):
+        self.assertEqual(
+            'Death date is out of range: bill paxton 02-02-2010', self.people.valid_date_check(TEST_PEOPLE_4))
+        self.assertEqual(
+            'Birthdate is out of range: jeff goldburg 01-02-1890', self.people.valid_date_check(TEST_PEOPLE_5))
+        self.assertEqual(
+            'Invalid birth date: tom cruise 01-03-1981', self.people.valid_date_check(TEST_PEOPLE_6))
