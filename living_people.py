@@ -46,10 +46,12 @@ def chart_data(years_alive):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--file_name", required=True)
+    parser.add_argument("--file_name", help="Name of file to read", required=True)
+    parser.add_argument("--chart", type=bool, help="Boolean True or False", required=False)
     args = parser.parse_args()
     g = LivingPeople()
     list_of_people = g.get_people(args.file_name)
     g.get_lives_per_year(list_of_people)
     print('Year(s) with the most people alive:', g.get_all_max_years())
-    chart_data(g.years_alive)
+    if args.chart:
+        chart_data(g.years_alive)
