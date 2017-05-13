@@ -1,7 +1,7 @@
-import datetime
+from argparse import ArgumentParser
 import csv
 from collections import namedtuple, defaultdict
-import operator
+import datetime
 
 TODAY = datetime.datetime.today().date()
 FORMAT = '%m-%d-%Y'
@@ -30,11 +30,26 @@ class LivingPeople():
                 reader = csv.reader(f)
                 return list(reader)
 
-    def count_living(self, people_list):
+    def get_lives_per_year(self, people_list):
         for person in people_list:
             for year in range(person.birth.year, person.death.year + 1):
                 self.years_alive[year] += 1
-        return self.get_all_max_years()
+        return self.years_alive
 
     def get_all_max_years(self):
         return [k for k, v in self.years_alive.items() if v == max(self.years_alive.values())]
+
+
+def chart_data(years_alive):
+    for year, count in sorted(years_alive.items()):
+        print('{}|'.format(year) + count * '#')
+
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument("--file_name", required=True)
+    args = parser.parse_args()
+    g = LivingPeople()
+    list_of_people = g.get_people(args.file_name)
+    g.get_lives_per_year(list_of_people)
+    print('Year(s) with the most people alive:', g.get_all_max_years())
+    chart_data(g.years_alive)
