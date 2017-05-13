@@ -65,7 +65,7 @@ if __name__ == "__main__":
     date_not_valid = g.valid_date_check(list_of_people)
     if date_not_valid:
         print("Error")
-        print(date_check)
+        print(date_not_valid)
     else:
         g.get_lives_per_year(list_of_people)
         print('Year(s) with the most people alive:', g.get_all_max_years())
