@@ -62,8 +62,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     g = LivingPeople()
     list_of_people = g.get_people(args.file_name)
-    date_check = g.valid_date_check(list_of_people)
-    if date_check:
+    date_not_valid = g.valid_date_check(list_of_people)
+    if date_not_valid:
         print("Error")
         print(date_check)
     else:
