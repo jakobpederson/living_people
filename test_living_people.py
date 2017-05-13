@@ -31,13 +31,13 @@ class TestLivingPeople(unittest.TestCase):
     def test_get_people(self):
         self.assertCountEqual(TEST_PEOPLE, self.people.get_people('file.csv'))
 
-    def test_get_lives_per_year(self):
+    def test_get_max_lives_per_year(self):
         people_list = self.people.get_people('file.csv')
         self.people.get_lives_per_year(people_list)
         result = self.people.get_all_max_years()
         self.assertCountEqual([1991], result)
 
-    def test_get_lives_per_year_if_multiple_years_have_max_value(self):
+    def test_get_max_lives_per_year_if_multiple_years_have_max_value(self):
         people_list = TEST_PEOPLE_2
         self.people.get_lives_per_year(people_list)
         result = self.people.get_all_max_years()
