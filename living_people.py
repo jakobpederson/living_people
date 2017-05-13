@@ -11,6 +11,12 @@ class LivingPeople():
 
     def __init__(self):
         self.years_alive = defaultdict(int)
+    
+    def read_file(self, file_name):
+        if file_name:
+            with open(file_name, 'r') as f:
+                reader = csv.reader(f)
+                return list(reader)
 
     def get_people(self, file_name):
         people = self.read_file(file_name=file_name)
@@ -34,12 +40,6 @@ class LivingPeople():
             if person.death.year < 1900 or person.death.year > 2000:
                 return 'Death date is out of range: {} {} {}'.format(
                     person.first_name, person.last_name, person.death.date().strftime(FORMAT))
-
-    def read_file(self, file_name):
-        if file_name:
-            with open(file_name, 'r') as f:
-                reader = csv.reader(f)
-                return list(reader)
 
     def get_lives_per_year(self, people_list):
         for person in people_list:
